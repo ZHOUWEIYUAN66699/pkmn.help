@@ -19,6 +19,10 @@ import { Badge } from "./Badge";
 import { useSessionStorage, useDebounceValue } from "usehooks-ts";
 import { CopyButton } from "./CopyButton";
 import { IconMusic } from "./IconMusic";
+import HelloVue from "./Hello.vue";
+import { applyVueInReact } from "veaury";
+
+const Hello = applyVueInReact(HelloVue) as any;
 
 const nbsp = "\u00a0";
 
@@ -107,6 +111,7 @@ function Monster({ pokemon, setQuery }: MonsterProps) {
         "pa3 br3 bg1 ba border2 button-shadow"
       )}
     >
+      <Hello x="1" />
       <div className="flex flex flex-column flex-row-ns items-center-ns gap2">
         <div className="flex items-center gap2">
           <div className="fg3 mv0 tabular-nums f5">{displayNumber}</div>

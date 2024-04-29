@@ -1,5 +1,6 @@
 import Papa from "papaparse";
-import react from "@vitejs/plugin-react";
+// import react from "@vitejs/plugin-react";
+import veauryVitePlugins from "veaury/vite/index.js";
 import { defineConfig, UserConfigExport } from "vite";
 import { VitePWA } from "vite-plugin-pwa";
 import pluginPurgeCss from "vite-plugin-purgecss-updated-v5";
@@ -134,7 +135,10 @@ export default defineConfig((env) => {
       sourcemap: true,
     },
     plugins: [
-      react(),
+      veauryVitePlugins({
+        type: "react",
+      }),
+      // react(),
       pluginPurgeCss(),
       VitePWA({
         mode: env.mode !== "development" ? "production" : "development",

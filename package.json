@@ -43,6 +43,9 @@
     "@types/node-fetch": "^2.6.11",
     "@typescript-eslint/eslint-plugin": "^7.4.0",
     "@typescript-eslint/parser": "^7.4.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "@vitejs/plugin-vue-jsx": "^3.1.0",
     "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.1",
@@ -66,7 +69,6 @@
     "@types/react": "^18.2.73",
     "@types/react-dom": "^18.2.23",
     "@types/react-router-dom": "^5.3.3",
-    "@vitejs/plugin-react": "^4.2.1",
     "classnames": "^2.5.1",
     "colord": "^2.9.2",
     "fastest-levenshtein": "^1.0.12",
@@ -85,6 +87,8 @@
     "stylelint-config-standard": "^36.0.0",
     "tachyons": "^4.12.0",
     "tsx": "^4.7.1",
-    "usehooks-ts": "^3.0.2"
+    "usehooks-ts": "^3.0.2",
+    "veaury": "^2.3.18",
+    "vue": "^3.4.26"
   }
 }
