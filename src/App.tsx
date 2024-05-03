@@ -12,7 +12,8 @@ import { ScreenDefense } from "./ScreenDefense";
 import { ScreenDefenseTeam } from "./ScreenDefenseTeam";
 import { ScreenMore } from "./ScreenMore";
 import { ScreenOffense } from "./ScreenOffense";
-import { ScreenPokedex } from "./ScreenPokedex";
+import { VueScreenPokedex } from "./react/VueScreenPokedex";
+// import { ScreenPokedex } from "./ScreenPokedex";
 import { ScreenPokedexHelp } from "./ScreenPokedexHelp";
 import { ScreenWeaknessCoverage } from "./ScreenWeaknessCoverage";
 import Spinner from "./Spinner";
@@ -281,7 +282,10 @@ export function App() {
             <Route
               path="/pokedex/"
               element={
-                <ScreenPokedex allPokemon={AllPokemon} isLoading={isLoading} />
+                <VueScreenPokedex
+                  allPokemon={AllPokemon}
+                  isLoading={isLoading}
+                />
               }
             />
             <Route
