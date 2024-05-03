@@ -4,7 +4,8 @@
 
 # Pokémon Type Calculator
 
-Pokémon Type Calculator helps you figure out offense/defense matchups for Pokémon
+Pokémon Type Calculator helps you figure out offense/defense matchups for
+Pokémon
 
 ## Development
 
@@ -15,7 +16,8 @@ $ npm start
 
 ## Updating Pokédex data
 
-Make sure to delete all the images in `public/img` before running this command or all existing images will be kept
+Make sure to delete all the images in `public/img` before running this command
+or all existing images will be kept
 
 ```
 $ npm run update-pokedex
