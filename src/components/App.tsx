@@ -33,6 +33,7 @@ import { ScreenPokedexHelp } from "../screens/ScreenPokedexHelp";
 import { ScreenWeaknessCoverage } from "../screens/ScreenWeaknessCoverage";
 import styles from "./App.module.css";
 import { Crash } from "./Crash";
+import { LanguageSelector } from "./LanguageSelector";
 import { MonsterImage } from "./MonsterImage";
 
 const router = createBrowserRouter([
@@ -269,21 +270,26 @@ export function Layout(): ReactNode {
           <div>{t("title")}</div>
         </h1>
         <nav className={styles.tabBar}>
-          <NavLink className={tabClass} to="/offense/">
-            {t("navigation.offense")}
-          </NavLink>
-          <NavLink className={tabClass} to="/defense/">
-            {t("navigation.defense")}
-          </NavLink>
-          <NavLink className={tabClass} to="/pokedex/">
-            {t("navigation.pokedex")}
-          </NavLink>
-          <NavLink
-            className={classNames(tabClass, needRefresh && styles.pleaseUpdate)}
-            to="/more/"
-          >
-            {t("navigation.more")}
-          </NavLink>
+          <div className={styles.tabLinks}>
+            <NavLink className={tabClass} to="/offense/">
+              {t("navigation.offense")}
+            </NavLink>
+            <NavLink className={tabClass} to="/defense/">
+              {t("navigation.defense")}
+            </NavLink>
+            <NavLink className={tabClass} to="/pokedex/">
+              {t("navigation.pokedex")}
+            </NavLink>
+            <NavLink
+              className={classNames(tabClass, needRefresh && styles.pleaseUpdate)}
+              to="/more/"
+            >
+              {t("navigation.more")}
+            </NavLink>
+          </div>
+          <div className={styles.tabBarRight}>
+            <LanguageSelector />
+          </div>
         </nav>
         <Outlet />
       </div>

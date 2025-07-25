@@ -8,41 +8,31 @@ import { ExternalLink } from "../components/ExternalLink";
 import { FancyText } from "../components/FancyText";
 import { Flex } from "../components/Flex";
 import { RadioGroup } from "../components/RadioGroup";
-import { Select } from "../components/Select";
+
 import { TranslationCard } from "../components/TranslationCard";
 import { useAppContext } from "../hooks/useAppContext";
 import { useGeneration } from "../hooks/useGeneration";
-import { useLanguage } from "../hooks/useLanguage";
+
 import { useTheme } from "../hooks/useTheme";
 import { useTypeCount } from "../hooks/useTypeCount";
 import { compare } from "../misc/compare";
 import { generations, isGeneration } from "../misc/data-generations";
-import {
-  getDesiredLanguage,
-  isLang,
-  supportedLanguages,
-} from "../misc/detectLanguage";
+import { supportedLanguages } from "../misc/detectLanguage";
 import { fail } from "../misc/fail";
 import {
-  formatLanguageCompletion,
   languageBounty,
   languageCompletions,
-  officialLanguages,
   officialLanguagesSet,
-  showLang,
-  unofficialLanguages,
 } from "../misc/lang";
 import { resetApp } from "../misc/resetApp";
 
 export function ScreenMore(): ReactNode {
   const { needsAppUpdate, updateApp } = useAppContext();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [generation, setGeneration] = useGeneration();
-  const [language, setLanguage] = useLanguage();
   const [theme, setTheme] = useTheme();
   const [typeCount, setTypeCount] = useTypeCount();
   const year = new Date().getFullYear();
-  const autoLang = getDesiredLanguage() || "en";
 
   return (
     <main className="content-narrow center">
@@ -101,63 +91,7 @@ export function ScreenMore(): ReactNode {
               {t("more.settings.heading")}
             </FancyText>
 
-            <Select
-              label={t("more.settings.language.label")}
-              value={language}
-              helpText={
-                <>
-                  <span aria-hidden="true">🌎</span> Please{" "}
-                  <ExternalLink
-                    href="#translate"
-                    onClick={(event) => {
-                      const element = event.target as HTMLAnchorElement;
-                      const url = new URL(element.href);
-                      const section =
-                        document.querySelector(url.hash)?.closest("details") ??
-                        fail("couldn't find " + url.hash);
-                      section.open = true;
-                    }}
-                  >
-                    help me translate
-                  </ExternalLink>{" "}
-                  this site.
-                </>
-              }
-              onChange={(event) => {
-                setLanguage(event.target.value);
-                i18n.changeLanguage(language);
-              }}
-            >
-              <optgroup label={t("more.settings.language.default")}>
-                <option value="">
-                  * {showLang(autoLang)} ({formatLanguageCompletion(autoLang)})
-                </option>
-              </optgroup>
-              <optgroup label={t("more.settings.language.official")}>
-                {officialLanguages.map((lang) => {
-                  if (!isLang(lang)) {
-                    throw new Error(`${lang} is not a valid language`);
-                  }
-                  return (
-                    <option value={lang} key={lang}>
-                      {showLang(lang)} ({formatLanguageCompletion(lang)})
-                    </option>
-                  );
-                })}
-              </optgroup>
-              <optgroup label={t("more.settings.language.unofficial")}>
-                {unofficialLanguages.map((lang) => {
-                  if (!isLang(lang)) {
-                    throw new Error(`${lang} is not a valid language`);
-                  }
-                  return (
-                    <option value={lang} key={lang}>
-                      {showLang(lang)} ({formatLanguageCompletion(lang)})
-                    </option>
-                  );
-                })}
-              </optgroup>
-            </Select>
+
 
             <RadioGroup
               label={t("more.settings.theme.label")}

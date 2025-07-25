@@ -94,6 +94,25 @@
   }
 }
 
+@media (width < 40rem) {
+  .header {
+    padding: var(--padding2) var(--padding3);
+  }
+
+  .tabBar {
+    flex-direction: column;
+    gap: var(--padding2);
+  }
+
+  .tabLinks {
+    width: 100%;
+  }
+
+  .tabBarRight {
+    align-self: flex-end;
+  }
+}
+
 .headerButton {
   --size: 30px;
   position: relative;
@@ -212,20 +231,33 @@
   background: var(--color-bg1);
   border-bottom: 1px solid var(--color-border2);
   padding: var(--padding2);
-  gap: var(--padding2);
   border-color: var(--color-border2);
   box-shadow:
     0 2px 8px rgb(0 0 0 / 5%),
     0 2px 16px rgb(0 0 0 / 5%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
+  gap: var(--padding2);
+}
+
+.tabLinks {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  justify-content: center;
+  gap: var(--padding2);
+  flex: 1;
+}
+
+.tabBarRight {
+  display: flex;
+  align-items: center;
 }
 
 @media (width >= 40rem) {
-  .tabBar {
+  .tabLinks {
     display: flex;
+    justify-content: center;
   }
 }
 
